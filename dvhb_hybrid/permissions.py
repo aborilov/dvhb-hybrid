@@ -9,7 +9,7 @@ from dvhb_hybrid.redis import redis_key
 
 
 def get_api_key(request):
-    return request.headers.get('API-KEY') or request.GET.get('api_key')
+    return request.headers.get('API-KEY') or request.GET.get('api_key') or request.cookies.get('API-KEY')
 
 
 async def get_session_data(request, sessions=None):
